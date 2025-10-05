@@ -5,12 +5,14 @@ export default function App() {
     { t: "Seasonal Rhythm", d: "Plan for spring, preserve for winter—storms and droughts test your prep." },
     { t: "Cooking System", d: "Fun to start, endless to master—built on real recipes and techniques." },
     { t: "Hunting & Butchery (Optional)", d: "Humane harvest with settings to disable hunting/harvest entirely if you prefer." },
-    { t: "Play at Your Pace", d: "Solo or co‑op—progress that respects your time." },
+    { t: "Play at Your Pace", d: "Solo or co-op—progress that respects your time." },
   ];
+
+  // Put screenshots in /public and list them here.
+  const shots = ["/Screenshot_1.jpg"];
 
   return (
     <div className="min-h-screen bg-[#efe3d0] text-[#2b1b12] text-lg">
-
       {/* Header — maroon with white text, centered content */}
       <header className="sticky top-0 z-20 border-b-2 border-[#4b2e19] bg-[#6b1f28] text-white">
         <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -34,7 +36,7 @@ export default function App() {
         <section id="home" className="border-b-2 border-[#4b2e19] bg-[#f2e6d6]">
           <div className="mx-auto max-w-4xl py-12">
             <p className="mx-auto inline-flex items-center gap-2 border-2 border-[#4b2e19] bg-[#e3d4be] px-2 py-1 text-xs">
-              Farming <span>•</span> Crafting <span>•</span> Co‑op
+              Farming <span>•</span> Crafting <span>•</span> Co-op
             </p>
             <h1 className="mt-4 text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl">
               Build your dream homestead
@@ -47,7 +49,10 @@ export default function App() {
             </p>
 
             {/* Primary CTA centered */}
-            <div className="mt-8 flex justify-center"><a href="#download" className="border-2 border-[#2b1b12] bg-[#7a4f39] px-10 py-5 text-2xl font-extrabold text-white hover:bg-[#6b4532]">Download Demo</a>
+            <div className="mt-8 flex justify-center">
+              <a href="#download" className="border-2 border-[#2b1b12] bg-[#7a4f39] px-10 py-5 text-2xl font-extrabold text-white hover:bg-[#6b4532]">
+                Download Demo
+              </a>
             </div>
 
             {/* Sarebyl hero image, scaled up and crisp */}
@@ -55,10 +60,12 @@ export default function App() {
               <div className="border-2 border-[#4b2e19] bg-[#dfefff] p-3">
                 <img src="/Sarebyl.png" alt="Sarebyl" width={620} className="[image-rendering:pixelated] select-none" />
               </div>
-              <p className="max-w-3xl text-xl">The <span className="font-semibold">Sarebyl</span> is a seasonal spirit and the farm’s mascot—growing and fading with the year. Its life cycle mirrors the land and inspires many of the game's systems.</p>
+              <p className="max-w-3xl text-xl">
+                The <span className="font-semibold">Sarebyl</span> is a seasonal spirit and the farm’s mascot—growing and fading with the year. Its life cycle mirrors the land and inspires many of the game's systems.
+              </p>
             </div>
 
-            <p className="mt-3 text-base text-[#3a2a1e]">Windows · macOS · Linux</p>
+            <p className="mt-3 text-base text-[#3a2a1e]">Windows</p>
           </div>
         </section>
 
@@ -79,17 +86,17 @@ export default function App() {
           </div>
         </section>
 
-        {/* STORY — single card (removed empty right box) */}
+        {/* STORY — single card */}
         <section id="story" className="border-b-2 border-[#4b2e19] bg-[#f3e8d8]">
           <div className="mx-auto max-w-4xl px-2 py-12">
             <div className="border-2 border-[#4b2e19] bg-[#e8efe2] p-4">
               <h3 className="text-3xl font-extrabold">A place to belong</h3>
               <p className="mt-2 text-xl">
-                Mechanics are built from real practices: soil care, pasture rotation, seed saving, and preservation. Our cooking system mirrors real world recipes—easy to start, deep to explore. Hunting and a humane butcher exist for players who want them, and <span className="font-semibold">built‑in settings let you disable harvest or hunting</span> entirely.
+                Mechanics are built from real practices: soil care, pasture rotation, seed saving, and preservation. Our cooking system mirrors real world recipes—easy to start, deep to explore. Hunting and a humane butcher exist for players who want them, and <span className="font-semibold">built-in settings let you disable harvest or hunting</span> entirely.
               </p>
               <ul className="mt-3 inline-block text-left list-disc pl-5 text-xl">
-                <li>Controller & KB/M friendly.</li>
-                <li>Local & online co‑op.</li>
+                <li>Keyboard & mouse (controller support coming later).</li>
+                <li>Local & online co-op.</li>
                 <li>Built by a tiny team with big love.</li>
               </ul>
               <p className="mt-3 text-xl">Demo available now!</p>
@@ -97,12 +104,22 @@ export default function App() {
           </div>
         </section>
 
-        {/* SCREENS — single placeholder */}
+        {/* SCREENS */}
         <section id="screenshots" className="border-b-2 border-[#4b2e19] bg-[#eadfd1]">
           <div className="mx-auto max-w-5xl px-2 py-12">
             <h2 className="text-4xl font-extrabold tracking-tight">Screenshots</h2>
-            <div className="mt-6 border-2 border-[#4b2e19] bg-[#f0e4d4]">
-              <div className="w-full [image-rendering:pixelated] bg-cover bg-center" style={{ backgroundImage: "url('/screens/shot1.jpg')", aspectRatio: '16 / 9' }} />
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-1">
+              {shots.map((src, i) => (
+                <div key={i} className="border-2 border-[#4b2e19] bg-[#f0e4d4]">
+                  <img
+                    src={src}
+                    alt={`Homesteader screenshot ${i + 1}`}
+                    className="w-full [image-rendering:pixelated] object-cover"
+                    style={{ aspectRatio: "16 / 9" }}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -113,9 +130,14 @@ export default function App() {
             <h2 className="text-4xl font-extrabold tracking-tight">Play the demo today</h2>
             <p className="mt-2 text-sm">Your feedback helps shape the farm.</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-              <a href="#" className="border-2 border-[#2b1b12] bg-[#7a4f39] px-10 py-4 text-2xl font-bold text-white hover:bg-[#6b4532]">Windows</a>
-              <a href="#" className="border-2 border-[#2b1b12] bg-[#7a4f39] px-10 py-4 text-2xl font-bold text-white hover:bg-[#6b4532]">macOS</a>
-              <a href="#" className="border-2 border-[#2b1b12] bg-[#7a4f39] px-10 py-4 text-2xl font-bold text-white hover:bg-[#6b4532]">Linux</a>
+              {/* Put your ZIP in /public and make sure this filename matches */}
+              <a
+                href="/HomesteaderDemo.zip"
+                download
+                className="border-2 border-[#2b1b12] bg-[#7a4f39] px-10 py-4 text-2xl font-bold text-white hover:bg-[#6b4532]"
+              >
+                Windows
+              </a>
             </div>
           </div>
         </section>
@@ -125,7 +147,7 @@ export default function App() {
       <footer className="border-t-2 border-[#4b2e19] bg-[#6b1f28] text-white">
         <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="grid place-items-center">
-            <p className="text-base">© {new Date().getFullYear()} Homesteader™ • Uplifting Games</p>
+            <p className="text-base">© {new Date().getFullYear()} Homesteader™ • Uplifting Games LLC</p>
           </div>
         </div>
       </footer>
