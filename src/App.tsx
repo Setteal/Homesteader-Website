@@ -132,7 +132,7 @@ export default function App() {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               {/* Put your ZIP in /public and make sure this filename matches */}
               <a
-                href="/HomesteaderDemo.zip"
+                href="/HomesteaderDemo-Windows.zip"
                 download
                 className="border-2 border-[#2b1b12] bg-[#7a4f39] px-10 py-4 text-2xl font-bold text-white hover:bg-[#6b4532]"
               >
